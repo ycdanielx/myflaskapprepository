@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/flask-app', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/flask-app:v1', '.']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['compute', 'instances', 'update-container', 'nnabuisi-instance', '--container-image', 'gcr.io/$PROJECT_ID/flask-app', '--zone', 'us-central1-c']
+  args: ['compute', 'instances', 'update-container', 'nnabuisi-instance', '--container-image', 'gcr.io/$PROJECT_ID/flask-app:v1', '--zone', 'us-central1-c']
 images:
-- 'gcr.io/$PROJECT_ID/flask-app'
+- 'gcr.io/$PROJECT_ID/flask-app:v1'
